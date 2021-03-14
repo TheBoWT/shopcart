@@ -1,0 +1,21 @@
+<div class="row" *ngIf="product">
+  <div class="images">
+    <div *ngFor="let image of product.imageUrl; let i = index" style="display: flex;">
+      <img src="{{ image }}" alt="" width="50px" (mouseenter)="currentImage = i">
+    </div>
+    <div class="mainImage">
+      <img src="{{ product.imageUrl[currentImage] }}" alt="" >
+    </div>
+    {{ product.title }} {{ product.price | currency }}
+  </div>
+
+  <button class="btn btn-info" (click)="addToCart(product)">Add to Cart</button>
+</div>
+
+
+<h1>Cart Items</h1>
+<hr>
+<app-cart></app-cart>
+
+
+
